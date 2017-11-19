@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ProductItem from './Product-item';
+
 export default class ProductsList extends React.Component {
     state = {
         error: null,
@@ -34,17 +36,18 @@ export default class ProductsList extends React.Component {
             return (
                 <div>
                     <h1>Lista de Produtos</h1>
-
-                    <ul>
+                    <div className="products-list">
                         {products.map(product => (
-                            <li key={product.title}>
-                                <p>{product.title}</p>
-                                <p>{product.description}</p>
-                                <p>{product.price}</p>
-                                <p>---------------</p>
-                            </li>
+                            <div className="card product-item" key={product.title}>
+                                <img className="card-img-top" src="..." alt="Card image cap" />
+                                <div className="card-body">
+                                    <h4 className="card-title">{product.title}</h4>
+                                    <p className="card-text">{product.description}</p>
+                                    <a href="#" className="btn btn-primary">Comprar {product.price}</a>
+                                </div>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
                 </div>
             );
         }
